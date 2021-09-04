@@ -15,8 +15,4 @@
     <ProjectReference Include="..\ScheduleNetCore.Api.DataAccess\ScheduleNetCore.Api.DataAccess.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Register\" />
-  </ItemGroup>
-
 </Project>

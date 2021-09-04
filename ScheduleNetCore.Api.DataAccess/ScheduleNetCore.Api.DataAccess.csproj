@@ -22,9 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Common\" />
-    <Folder Include="EntityConfig\" />
     <Folder Include="Mappers\" />
-    <Folder Include="Repositories\" />
   </ItemGroup>
 
 </Project>

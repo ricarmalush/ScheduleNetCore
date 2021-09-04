@@ -1,19 +1,13 @@
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Identity.Web;
-using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using ScheduleNetCore.Api.CrossCutting.Middleware;
+using ScheduleNetCore.Api.CrossCutting.Register;
+using ScheduleNetCore.Api.DataAccess;
+using ScheduleNetCore.API.Config;
 
 namespace ScheduleNetCore.API
 {
@@ -29,14 +23,16 @@ namespace ScheduleNetCore.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
+            //Inyectamos la conexión a la base de datos.
+            services.AddDbContext<ScheduleNetCoreDBContext>(opt =>
+                opt.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            IoCRegister.AddRegistration(services);
+            SwaggerConfig.AddRegistration(services);
 
             services.AddControllers();
-            services.AddSwaggerGen(c =>
-            {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "ScheduleNetCore.API", Version = "v1" });
-            });
+ 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -44,9 +40,14 @@ namespace ScheduleNetCore.API
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ScheduleNetCore.API v1"));
+                //Estas son las exepciones que viene por defecto .Net Core
+                //app.UseDeveloperExceptionPage();
+
+                SwaggerConfig.AddRegistration(app);
+                //app.UseDeveloperExceptionPage();
+
+                //Vamos a crear nuestro MiddlleWare. Nuestro manejador de excepciones.
+                app.UseMiddleware<HandleErrorMiddleware>();
             }
 
             app.UseHttpsRedirection();
