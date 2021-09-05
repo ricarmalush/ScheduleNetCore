@@ -1,11 +1,9 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using ScheduleNetCore.API.Filters;
 using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace ScheduleNetCore.API.Config
 {
@@ -18,12 +16,14 @@ namespace ScheduleNetCore.API.Config
 
             //Donde esta el xmlpath que genera el proyecto.
             var xmlpath = Path.Combine(basepath, "ScheduleNetCore.API.xml");
-            
+
 
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ScheduleNetCore.API", Version = "v1" });
                     c.IncludeXmlComments(xmlpath);
+
+                    c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
                 }
             );
 

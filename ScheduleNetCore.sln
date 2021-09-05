@@ -15,23 +15,23 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.4 DataAccess", "1.4 DataA
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.5 CrossCutting", "1.5 CrossCutting", "{33928CE6-68D0-4A6D-A34F-EC2EC1919D1F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.API", "ScheduleNetCore.API\ScheduleNetCore.API.csproj", "{CC2710FD-D81A-491E-A1BE-5ACA48A23FA8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.API", "ScheduleNetCore.API\ScheduleNetCore.API.csproj", "{CC2710FD-D81A-491E-A1BE-5ACA48A23FA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Web", "ScheduleNetCore.Web\ScheduleNetCore.Web.csproj", "{7A87DDC8-D390-4C21-8D7E-85AB6060C1B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Web", "ScheduleNetCore.Web\ScheduleNetCore.Web.csproj", "{7A87DDC8-D390-4C21-8D7E-85AB6060C1B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application", "ScheduleNetCore.Api.Application\ScheduleNetCore.Api.Application.csproj", "{E5D2B8B1-11B1-4F04-B152-383F6F2CD7EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.Application", "ScheduleNetCore.Api.Application\ScheduleNetCore.Api.Application.csproj", "{E5D2B8B1-11B1-4F04-B152-383F6F2CD7EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application.Contracts", "ScheduleNetCore.Api.Application.Contracts\ScheduleNetCore.Api.Application.Contracts.csproj", "{31FCEA93-8D5E-403D-BB06-E624765AA4F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.Application.Contracts", "ScheduleNetCore.Api.Application.Contracts\ScheduleNetCore.Api.Application.Contracts.csproj", "{31FCEA93-8D5E-403D-BB06-E624765AA4F6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Business", "ScheduleNetCore.Api.Business\ScheduleNetCore.Api.Business.csproj", "{0E32C325-3D8A-4C42-BE4E-CF8F40F7C614}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.Business", "ScheduleNetCore.Api.Business\ScheduleNetCore.Api.Business.csproj", "{0E32C325-3D8A-4C42-BE4E-CF8F40F7C614}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.DataAccess", "ScheduleNetCore.Api.DataAccess\ScheduleNetCore.Api.DataAccess.csproj", "{7C6A38FC-44ED-42D4-85A7-C21A51E9651D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.DataAccess", "ScheduleNetCore.Api.DataAccess\ScheduleNetCore.Api.DataAccess.csproj", "{7C6A38FC-44ED-42D4-85A7-C21A51E9651D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.DataAccess.Contracts", "ScheduleNetCore.Api.DataAccess.Contracts\ScheduleNetCore.Api.DataAccess.Contracts.csproj", "{16309175-D62B-4ABF-84CC-D12043F7B17E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.DataAccess.Contracts", "ScheduleNetCore.Api.DataAccess.Contracts\ScheduleNetCore.Api.DataAccess.Contracts.csproj", "{16309175-D62B-4ABF-84CC-D12043F7B17E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.CrossCutting", "ScheduleNetCore.Api.CrossCutting\ScheduleNetCore.Api.CrossCutting.csproj", "{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.CrossCutting", "ScheduleNetCore.Api.CrossCutting\ScheduleNetCore.Api.CrossCutting.csproj", "{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application.Tests", "ScheduleNetCore.Api.Application.Tests\ScheduleNetCore.Api.Application.Tests.csproj", "{F99B3ED2-96C8-4618-9DCB-ECA2834B31AF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application.Unit.Test", "ScheduleNetCore.Api.Application.Unit.Test\ScheduleNetCore.Api.Application.Unit.Test.csproj", "{C5521AA0-9139-4634-A8BC-033393052B7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -71,10 +71,10 @@ Global
 		{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F99B3ED2-96C8-4618-9DCB-ECA2834B31AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F99B3ED2-96C8-4618-9DCB-ECA2834B31AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F99B3ED2-96C8-4618-9DCB-ECA2834B31AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F99B3ED2-96C8-4618-9DCB-ECA2834B31AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5521AA0-9139-4634-A8BC-033393052B7D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5521AA0-9139-4634-A8BC-033393052B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5521AA0-9139-4634-A8BC-033393052B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5521AA0-9139-4634-A8BC-033393052B7D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -93,7 +93,7 @@ Global
 		{7C6A38FC-44ED-42D4-85A7-C21A51E9651D} = {051FF6E3-476E-439E-8369-014A67EAB7BE}
 		{16309175-D62B-4ABF-84CC-D12043F7B17E} = {051FF6E3-476E-439E-8369-014A67EAB7BE}
 		{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7} = {33928CE6-68D0-4A6D-A34F-EC2EC1919D1F}
-		{F99B3ED2-96C8-4618-9DCB-ECA2834B31AF} = {E6D25438-979D-4BA2-B32D-B82B4943107D}
+		{C5521AA0-9139-4634-A8BC-033393052B7D} = {E6D25438-979D-4BA2-B32D-B82B4943107D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F38B6B6-5ED6-4955-B1BD-550D933C931B}

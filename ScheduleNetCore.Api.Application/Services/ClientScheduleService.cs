@@ -12,13 +12,13 @@ namespace ScheduleNetCore.Api.Application.Services
     {
         //Por convención la barra baja _ es una variable privada.
         private readonly IClientScheduleRepository _clientScheduleRepository;
-        private readonly IAppConfig _appConfig;
+        //private readonly IAppConfig _appConfig;
 
         //Inyectamos el registro del repositorio.
-        public ClientScheduleService(IClientScheduleRepository clientScheduleRepository, IAppConfig appConfig)
+        public ClientScheduleService(IClientScheduleRepository clientScheduleRepository)
         {
             _clientScheduleRepository = clientScheduleRepository;
-            _appConfig = appConfig;
+            //_appConfig = appConfig;
         }
 
         public async Task<ClientScheduleEntity> Add(ClientScheduleEntity entity)
@@ -33,13 +33,13 @@ namespace ScheduleNetCore.Api.Application.Services
 
         public async Task<bool> Exist(int id)
         {
-            var entidad = await _clientScheduleRepository.Get(id);
+            var entidad = await _clientScheduleRepository.GetById(id);
             return entidad != null ? true : false;
         }
 
-        public async Task<ClientScheduleEntity> Get(int idEntity)
+        public async Task<ClientScheduleEntity> GetById(int idEntity)
         {
-            var entidad = await _clientScheduleRepository.Get(idEntity);
+            var entidad = await _clientScheduleRepository.GetById(idEntity);
             return entidad;
         }
 

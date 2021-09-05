@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using ScheduleNetCore.Api.Application.Configuration;
-using ScheduleNetCore.Api.Application.Contracts.ApiCaller;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ScheduleNetCore.Api.Application.Contracts.Services;
 using ScheduleNetCore.Api.CrossCutting.Middleware;
 using ScheduleNetCore.Api.DataAccess.Contracts.Entities;
@@ -10,19 +9,20 @@ using System.Threading.Tasks;
 
 namespace ScheduleNetCore.API.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class ClientScheduleController : ControllerBase
     {
         private readonly IClientScheduleService _clientScheduleService;
-        private readonly IApiCaller _apiCaller;
-        private readonly IAppConfig _apiConfig;
+        //private readonly IApiCaller _apiCaller;
+        //private readonly IAppConfig _apiConfig;
 
-        public ClientScheduleController(IClientScheduleService clientScheduleService, IApiCaller apiCaller, IAppConfig apiConfig)
+        public ClientScheduleController(IClientScheduleService clientScheduleService/*, IApiCaller apiCaller, IAppConfig apiConfig*/)
         {
             _clientScheduleService = clientScheduleService;
-            _apiCaller = apiCaller;
-            _apiConfig = apiConfig;
+            //_apiCaller = apiCaller;
+            //_apiConfig = apiConfig;
         }
 
         //api/ClientSchedule/GetById?id=1
@@ -31,14 +31,14 @@ namespace ScheduleNetCore.API.Controllers
         {
             try
             {
-                var seconds = _apiConfig.ServiceUrl;
+                //var seconds = _apiConfig.ServiceUrl;
 
-                var result = await _clientScheduleService.Get(id);
+                var result = await _clientScheduleService.GetById(id);
                 return result != null ? Ok(result) : throw new HandlerException(HttpStatusCode.BadRequest, new { mensaje = "!! No se encontraro el cliente !!" });
             }
             catch (Exception ex)
             {
-                throw new HandlerException(HttpStatusCode.BadRequest, new { mensaje = ex.Message});
+                throw new HandlerException(HttpStatusCode.BadRequest, new { mensaje = ex.Message });
             }
         }
 
@@ -131,7 +131,6 @@ namespace ScheduleNetCore.API.Controllers
                 throw new HandlerException(HttpStatusCode.NotFound, new { mensaje = "No se pudo desactivar el Cliente" });
             }
         }
-
 
     }
 }

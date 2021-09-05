@@ -28,7 +28,7 @@ namespace ScheduleNetCore.Api.DataAccess.Repositories
 
         public async Task<ClientScheduleEntity> DeleteAsync(int id)
         {
-            var entity = await Get(id);
+            var entity = await GetById(id);
 
             _scheduleNetCoreDBContext.ClientSchedule.Remove(entity);
             await _scheduleNetCoreDBContext.SaveChangesAsync();
@@ -47,7 +47,7 @@ namespace ScheduleNetCore.Api.DataAccess.Repositories
                 return false;
             }
         }
-        public async Task<ClientScheduleEntity> Get(int idEntity)
+        public async Task<ClientScheduleEntity> GetById(int idEntity)
         {
             var result = await _scheduleNetCoreDBContext.ClientSchedule.FirstOrDefaultAsync(x => x.ClientScheduleId == idEntity);
             return result;
@@ -68,7 +68,7 @@ namespace ScheduleNetCore.Api.DataAccess.Repositories
 
         public async Task<ClientScheduleEntity> UpdateActive(int identity)
         {
-            var entity = await Get(identity);
+            var entity = await GetById(identity);
 
             entity.Low = true;
 
@@ -79,7 +79,7 @@ namespace ScheduleNetCore.Api.DataAccess.Repositories
 
         public async Task<ClientScheduleEntity> UpdateDesactive(int identity)
         {
-            var entity = await Get(identity);
+            var entity = await GetById(identity);
 
             entity.Low = false;
             _scheduleNetCoreDBContext.ClientSchedule.Update(entity);

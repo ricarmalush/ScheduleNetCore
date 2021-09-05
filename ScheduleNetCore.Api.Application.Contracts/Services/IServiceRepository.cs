@@ -7,7 +7,7 @@ namespace ScheduleNetCore.Api.Application.Contracts.Services
     {
         Task<bool> Exist(int id);
         Task<IEnumerable<T>> GetAll();
-        Task<T> Get(int idEntity);
+        Task<T> GetById(int idEntity);
         Task<T> DeleteAsync(int id);
         Task<T> UpdateAsync(T entity);
         Task<T> UpdateActive(int identity);
