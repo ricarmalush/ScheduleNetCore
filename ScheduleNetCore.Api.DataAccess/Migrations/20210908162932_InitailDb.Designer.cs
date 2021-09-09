@@ -10,8 +10,8 @@ using ScheduleNetCore.Api.DataAccess;
 namespace ScheduleNetCore.Api.DataAccess.Migrations
 {
     [DbContext(typeof(ScheduleNetCoreDBContext))]
-    [Migration("20210903141640_InitialDb")]
-    partial class InitialDb
+    [Migration("20210908162932_InitailDb")]
+    partial class InitailDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -43,6 +43,51 @@ namespace ScheduleNetCore.Api.DataAccess.Migrations
                     b.HasKey("ClientScheduleId");
 
                     b.ToTable("ClientSchedule");
+                });
+
+            modelBuilder.Entity("ScheduleNetCore.Api.DataAccess.Contracts.Entities.CountryEntity", b =>
+                {
+                    b.Property<int>("CountryId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClientScheduleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("CountryName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("Low")
+                        .HasColumnType("bit");
+
+                    b.HasKey("CountryId");
+
+                    b.ToTable("Country");
+                });
+
+            modelBuilder.Entity("ScheduleNetCore.Api.DataAccess.Contracts.Entities.ProvinceEntity", b =>
+                {
+                    b.Property<int>("ProvinceId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ClientScheduleId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CountryId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("Low")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ProvinceId");
+
+                    b.ToTable("Province");
                 });
 #pragma warning restore 612, 618
         }

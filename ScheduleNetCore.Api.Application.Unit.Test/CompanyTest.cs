@@ -11,56 +11,53 @@ using System.Threading.Tasks;
 namespace ScheduleNetCore.Api.Application.Unit.Test
 {
     [TestClass]
-    public class ClientScheduleTest
+    public class CompanyTest
     {
-        private static IClientScheduleService _clientScheduleService;
+        private static ICompanyService _companyService;
 
         [ClassInitialize()]
         public static void Setup(TestContext testContext)
         {
-            Mock<IClientScheduleRepository> _clientScheduleRepository = new ClientScheduleRepositoryMock()._clientScheduleRepository;
+            Mock<ICompanyRepository> _companyRepository = new CompanyRepositoryMock()._companyRepository;
 
-            _clientScheduleService = new ClientScheduleService(_clientScheduleRepository.Object);
+            _companyService = new CompanyService(_companyRepository.Object);
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_guarda_un_ClientScheduleEntity()
+        public async Task Dado_una_entidad_devuelve_un_guarda_un_CompanyEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.Add(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _companyService.Add(CompanyStub.companyEntity1);
 
             //Assert
-            result.ClientName.Should().NotBeNullOrEmpty();
+            result.CompanyName.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_elimina_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_elimina_un_CompanyEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.DeleteAsync(1);
+            var result = await _companyService.DeleteAsync(1);
 
             //Assert
-            result.ClientScheduleId.Should().Equals(1);
+            result.TownId.Should().Equals(1);
             result.Should().Equals(true);
         }
 
         [TestMethod]
-        public async Task Dado_un_id_devuelve_un_client_ok()
+        public async Task Dado_un_id_devuelve_un_company_ok()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.GetById(1);
+            var result = await _companyService.GetById(1);
 
             //Assert
-            result.ClientName.Should().NotBeNullOrEmpty();
+            result.CompanyName.Should().NotBeNullOrEmpty();
 
         }
 
@@ -71,7 +68,7 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
 
             //Act
-            var result = await _clientScheduleService.GetByName(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _companyService.GetByName(CompanyStub.companyEntity1);
 
             //Assert
             result.Should().Equals(true);
@@ -79,13 +76,12 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Devuelve_un_listado_de_clientes()
+        public async Task Devuelve_un_listado_de_company()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.GetAll();
+            var result = await _companyService.GetAll();
 
             //Assert
             result.Should().NotBeNullOrEmpty();//Lista no vacía
@@ -94,13 +90,12 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_actualiza_un_ClientScheduleEntity()
+        public async Task Dado_una_entidad_devuelve_un_actualiza_un_CompanyEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.UpdateAsync(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _companyService.UpdateAsync(CompanyStub.companyEntity1);
 
             //Assert
             result.Should().NotBeNull();
@@ -108,29 +103,28 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_activa_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_activa_un_CompanyEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.UpdateActive(1);
+            var result = await _companyService.UpdateActive(1);
 
             //Assert
-            result.ClientScheduleId.Should().Equals(1);
+            result.TownId.Should().Equals(1);
             result.Should().Equals(true);
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_desactiva_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_desactiva_un_CompanyEntity()
         {
             //Arrange
 
             //Act
-            var result = await _clientScheduleService.UpdateDesactive(1);
+            var result = await _companyService.UpdateDesactive(1);
 
             //Assert
-            result.ClientScheduleId.Should().Equals(1);
+            result.TownId.Should().Equals(1);
             result.Should().Equals(true);
         }
 

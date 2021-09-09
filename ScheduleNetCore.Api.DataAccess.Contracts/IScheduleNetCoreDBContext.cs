@@ -11,6 +11,11 @@ namespace ScheduleNetCore.Api.DataAccess.Contracts
     public interface IScheduleNetCoreDBContext
     {
         public DbSet<ClientScheduleEntity> ClientSchedule { get; set; }
+        public DbSet<CountryEntity> Country { get; set; }
+        public DbSet<ProvinceEntity> Province { get; set; }
+        public DbSet<TownEntity> Town { get; set; }
+        public DbSet<CompanyEntity> Company { get; set; }
+        public DbSet<CauseEntity> Cause { get; set; }
 
         //Estas son las operaciones básicas que realiza el contexto
         DbSet<TEntity> Set<TEntity>() where TEntity : class;

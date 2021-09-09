@@ -11,56 +11,53 @@ using System.Threading.Tasks;
 namespace ScheduleNetCore.Api.Application.Unit.Test
 {
     [TestClass]
-    public class ClientScheduleTest
+    public class ProvinceTest
     {
-        private static IClientScheduleService _clientScheduleService;
+        private static IProvinceService _provinceService;
 
         [ClassInitialize()]
         public static void Setup(TestContext testContext)
         {
-            Mock<IClientScheduleRepository> _clientScheduleRepository = new ClientScheduleRepositoryMock()._clientScheduleRepository;
+            Mock<IProvinceRepository> _provinceRepository = new ProvinceRepositoryMock()._provinceRepository;
 
-            _clientScheduleService = new ClientScheduleService(_clientScheduleRepository.Object);
+            _provinceService = new ProvinceService(_provinceRepository.Object);
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_guarda_un_ClientScheduleEntity()
+        public async Task Dado_una_entidad_devuelve_un_guarda_un_ProvinceEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.Add(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _provinceService.Add(ProvinceStub.provinceEntity1);
 
             //Assert
-            result.ClientName.Should().NotBeNullOrEmpty();
+            result.Name.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_elimina_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_elimina_un_ProvinceEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.DeleteAsync(1);
+            var result = await _provinceService.DeleteAsync(1);
 
             //Assert
-            result.ClientScheduleId.Should().Equals(1);
+            result.CountryId.Should().Equals(1);
             result.Should().Equals(true);
         }
 
         [TestMethod]
-        public async Task Dado_un_id_devuelve_un_client_ok()
+        public async Task Dado_un_id_devuelve_un_province_ok()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.GetById(1);
+            var result = await _provinceService.GetById(1);
 
             //Assert
-            result.ClientName.Should().NotBeNullOrEmpty();
+            result.Name.Should().NotBeNullOrEmpty();
 
         }
 
@@ -71,7 +68,7 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
 
             //Act
-            var result = await _clientScheduleService.GetByName(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _provinceService.GetByName(ProvinceStub.provinceEntity1);
 
             //Assert
             result.Should().Equals(true);
@@ -79,13 +76,12 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Devuelve_un_listado_de_clientes()
+        public async Task Devuelve_un_listado_de_provinces()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.GetAll();
+            var result = await _provinceService.GetAll();
 
             //Assert
             result.Should().NotBeNullOrEmpty();//Lista no vacía
@@ -94,13 +90,12 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_actualiza_un_ClientScheduleEntity()
+        public async Task Dado_una_entidad_devuelve_un_actualiza_un_ProvinceEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.UpdateAsync(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _provinceService.UpdateAsync(ProvinceStub.provinceEntity1);
 
             //Assert
             result.Should().NotBeNull();
@@ -108,29 +103,28 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_activa_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_activa_un_ProvinceEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _clientScheduleService.UpdateActive(1);
+            var result = await _provinceService.UpdateActive(1);
 
             //Assert
-            result.ClientScheduleId.Should().Equals(1);
+            result.CountryId.Should().Equals(1);
             result.Should().Equals(true);
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_desactiva_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_desactiva_un_ProvinceEntity()
         {
             //Arrange
 
             //Act
-            var result = await _clientScheduleService.UpdateDesactive(1);
+            var result = await _provinceService.UpdateDesactive(1);
 
             //Assert
-            result.ClientScheduleId.Should().Equals(1);
+            result.CountryId.Should().Equals(1);
             result.Should().Equals(true);
         }
 

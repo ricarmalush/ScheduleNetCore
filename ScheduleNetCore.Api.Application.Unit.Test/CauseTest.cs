@@ -11,39 +11,39 @@ using System.Threading.Tasks;
 namespace ScheduleNetCore.Api.Application.Unit.Test
 {
     [TestClass]
-    public class ClientScheduleTest
+    public class CauseTest
     {
-        private static IClientScheduleService _clientScheduleService;
+        private static ICauseService _causeService;
 
         [ClassInitialize()]
         public static void Setup(TestContext testContext)
         {
-            Mock<IClientScheduleRepository> _clientScheduleRepository = new ClientScheduleRepositoryMock()._clientScheduleRepository;
+            Mock<ICauseRepository> _causeRepository = new CauseRepositoryMock()._causeRepository;
 
-            _clientScheduleService = new ClientScheduleService(_clientScheduleRepository.Object);
+            _causeService = new CauseService(_causeRepository.Object);
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_guarda_un_ClientScheduleEntity()
+        public async Task Dado_una_entidad_devuelve_un_guarda_un_CauseEntity()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.Add(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _causeService.Add(CauseStub.causeEntity1);
 
             //Assert
-            result.ClientName.Should().NotBeNullOrEmpty();
+            result.CauseName.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_elimina_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_elimina_un_CauseEntity()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.DeleteAsync(1);
+            var result = await _causeService.DeleteAsync(1);
 
             //Assert
             result.ClientScheduleId.Should().Equals(1);
@@ -51,27 +51,27 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_id_devuelve_un_client_ok()
+        public async Task Dado_un_id_devuelve_un_cause_ok()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.GetById(1);
+            var result = await _causeService.GetById(1);
 
             //Assert
-            result.ClientName.Should().NotBeNullOrEmpty();
+            result.CauseName.Should().NotBeNullOrEmpty();
 
         }
 
         [TestMethod]
-        public async Task Dado_un_nombre_devuelve_un_bolleano()
+        public async Task Dado_un_nombre_devuelve_un_boleano()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.GetByName(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _causeService.GetByName(CauseStub.causeEntity1);
 
             //Assert
             result.Should().Equals(true);
@@ -79,13 +79,13 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Devuelve_un_listado_de_clientes()
+        public async Task Devuelve_un_listado_de_causes()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.GetAll();
+            var result = await _causeService.GetAll();
 
             //Assert
             result.Should().NotBeNullOrEmpty();//Lista no vacía
@@ -94,13 +94,13 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_actualiza_un_ClientScheduleEntity()
+        public async Task Dado_una_entidad_devuelve_un_actualiza_un_CauseEntity()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.UpdateAsync(ClientScheduleStub.clientScheduleEntity1);
+            var result = await _causeService.UpdateAsync(CauseStub.causeEntity1);
 
             //Assert
             result.Should().NotBeNull();
@@ -108,13 +108,13 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_activa_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_activa_un_CauseEntity()
         {
             //Arrange
 
 
             //Act
-            var result = await _clientScheduleService.UpdateActive(1);
+            var result = await _causeService.UpdateActive(1);
 
             //Assert
             result.ClientScheduleId.Should().Equals(1);
@@ -122,12 +122,12 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_desactiva_un_ClientScheduleEntity()
+        public async Task Dado_un_numero_desactiva_un_CauseEntity()
         {
             //Arrange
 
             //Act
-            var result = await _clientScheduleService.UpdateDesactive(1);
+            var result = await _causeService.UpdateDesactive(1);
 
             //Assert
             result.ClientScheduleId.Should().Equals(1);

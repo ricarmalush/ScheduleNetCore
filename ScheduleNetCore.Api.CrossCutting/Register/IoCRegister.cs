@@ -25,6 +25,11 @@ namespace ScheduleNetCore.Api.CrossCutting.Register
         public static IServiceCollection AddRegisterServices(IServiceCollection services)
         {
             services.AddTransient<IClientScheduleService, ClientScheduleService>();
+            services.AddTransient<ICountryService, CountryService>();
+            services.AddTransient<IProvinceService, ProvinceService>();
+            services.AddTransient<ITownService, TownService>();
+            services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<ICauseService, CauseService>();
 
             return services;
         }
@@ -33,13 +38,18 @@ namespace ScheduleNetCore.Api.CrossCutting.Register
         {
             services.AddTransient<IScheduleNetCoreDBContext, ScheduleNetCoreDBContext>();
             services.AddTransient<IClientScheduleRepository, ClientScheduleRepository>();
+            services.AddTransient<ICountryRepository, CountryRepository>();
+            services.AddTransient<IProvinceRepository, ProvinceRepository>();
+            services.AddTransient<ITownRepository, TownRepository>();
+            services.AddTransient<ICompanyRepository, CompanyRepository>();
+            services.AddTransient<ICauseRepository, CauseRepository>();
 
             return services;
         }
 
         public static IServiceCollection AddRegisterOthers(IServiceCollection services)
         {
-            services.AddTransient<IAppConfig,AppConfig>();
+            services.AddTransient<IAppConfig, AppConfig>();
             services.AddTransient<IApiCaller, ApiCaller>();
 
             return services;

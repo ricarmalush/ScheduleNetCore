@@ -21,7 +21,7 @@ namespace ScheduleNetCore.API.Config
             services.AddSwaggerGen(c =>
                 {
                     c.SwaggerDoc("v1", new OpenApiInfo { Title = "ScheduleNetCore.API", Version = "v1" });
-                    c.IncludeXmlComments(xmlpath);
+                    //c.IncludeXmlComments(xmlpath);
 
                     c.OperationFilter<AuthorizationHeaderParameterOperationFilter>();
                 }

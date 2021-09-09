@@ -54,9 +54,11 @@ TESTING DE SOFTWARE
 		no responden en absoluto a nada fuera de lo programado para la prueba.
 		Spy: Estos objetos guardan las acciones que se hacen sobre ellos. Hace una especie de seguimiento sobre
 		que métodos se han llamado y con que parámetros.
+		
 		Mocks: Son objetos preprogramados con expectativas que forman una especificación de las llamadas que se
 		espera recibir. muy similar a un spy pero no solo guardan las acciones que se hacen en ellos, también es
 		necesario configurar qué comportamiento esperas cuando alguién llane a algunos de los métodos.
+		
 		Fake: Es un objeto que implementa complementa y que funciona, como un objeto normal sin ser simulado, pero
 		se diferencia en que está falseando algo para hacer alguna cosa más fácil de probar. Un ejemplo de esto 
 		podría ser un objeto que utiliza una base de datos en memoria en lugar de acceder a consultar la base de 

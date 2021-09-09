@@ -5,7 +5,7 @@ using System;
 using System.Net;
 using System.Threading.Tasks;
 
-namespace ScheduleNetCore.Api.CrossCutting.Middleware
+namespace ScheduleNetCore.Api.Application.Middleware
 {
     public class HandleErrorMiddleware
     {

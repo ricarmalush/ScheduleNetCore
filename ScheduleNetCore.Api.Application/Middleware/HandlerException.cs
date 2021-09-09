@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace ScheduleNetCore.Api.CrossCutting.Middleware
+namespace ScheduleNetCore.Api.Application.Middleware
 {
     //Método que va a controlar nuestros errores.
     public class HandlerException : Exception

@@ -7,72 +7,71 @@ using System.Threading.Tasks;
 
 namespace ScheduleNetCore.API.Controllers
 {
-    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
-    public class ClientScheduleController : ControllerBase
+    public class CausesController : ControllerBase
     {
-        private readonly IClientScheduleService _clientScheduleService;
+        private readonly ICauseService _causeService;
 
-        public ClientScheduleController(IClientScheduleService clientScheduleService)
+        public CausesController(ICauseService causeService)
         {
-            _clientScheduleService = clientScheduleService;
+            _causeService = causeService;
         }
 
-        //api/ClientSchedule/AddAsync
+        //api/Causes/AddAsync
         [HttpPost("AddAsync")]
-        public async Task<IActionResult> AddAsync([FromBody] ClientScheduleEntity model)
+        public async Task<IActionResult> AddAsync([FromBody] CauseEntity model)
         {
-            var result = await _clientScheduleService.Add(model);
+            var result = await _causeService.Add(model);
             return Ok(result);
         }
 
-        //api/ClientSchedule/DeleteAsync/{id}
+        //api/Causes/DeleteAsync/{id}
         [HttpDelete("DeleteAsync")]
         public async Task<IActionResult> DeleteAsync(int id)
         {
-            var result = await _clientScheduleService.DeleteAsync(id);
+            var result = await _causeService.DeleteAsync(id);
             return Ok(result);
         }
 
-        //api/ClientSchedule/GetById?id=1
+        //api/Causes/GetById?id=1
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(int id)
         {
-            var result = await _clientScheduleService.GetById(id);
+            var result = await _causeService.GetById(id);
             return Ok(result);
         }
 
-        //api/ClientSchedule/GetAll
+        //api/Causes/GetAll
         [HttpGet("GetAll")]
         public async Task<IActionResult> GetAll()
         {
-            var result = await _clientScheduleService.GetAll();
+            var result = await _causeService.GetAll();
             return result != null ? Ok(result) : throw new HandlerException(HttpStatusCode.BadRequest, new { mensaje = "!! No se encontraron los clientes !!" });
 
         }
 
-        //api/ClientSchedule/UpdateAsync
+        //api/Causes/UpdateAsync
         [HttpPut("UpdateAsync")]
-        public async Task<IActionResult> UpdateAsync([FromBody] ClientScheduleEntity model)
+        public async Task<IActionResult> UpdateAsync([FromBody] CauseEntity model)
         {
-            var result = await _clientScheduleService.UpdateAsync(model);
+            var result = await _causeService.UpdateAsync(model);
             return Ok(result);
         }
 
-        //api/ClientSchedule/UpdateActive/{id}
+        //api/Causes/UpdateActive/{id}
         [HttpPut("UpdateActive")]
         public async Task<IActionResult> UpdateActive(int id)
         {
-            var result = await _clientScheduleService.UpdateActive(id);
+            var result = await _causeService.UpdateActive(id);
             return Ok(result);
         }
 
-        //api/ClientSchedule/UpdateDesactive/{id}
+        //api/Causes/UpdateDesactive/{id}
         [HttpPut("UpdateDesactive")]
         public async Task<IActionResult> UpdateDesactive(int id)
         {
-            var result = await _clientScheduleService.UpdateDesactive(id);
+            var result = await _causeService.UpdateDesactive(id);
             return Ok(result);
         }
 

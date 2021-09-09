@@ -1,8 +1,6 @@
-﻿using ScheduleNetCore.Api.Application.Configuration;
-using ScheduleNetCore.Api.Application.Contracts.Services;
+﻿using ScheduleNetCore.Api.Application.Contracts.Services;
 using ScheduleNetCore.Api.DataAccess.Contracts.Entities;
 using ScheduleNetCore.Api.DataAccess.Contracts.Repositories;
-using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -18,7 +16,6 @@ namespace ScheduleNetCore.Api.Application.Services
         public ClientScheduleService(IClientScheduleRepository clientScheduleRepository)
         {
             _clientScheduleRepository = clientScheduleRepository;
-            //_appConfig = appConfig;
         }
 
         public async Task<ClientScheduleEntity> Add(ClientScheduleEntity entity)
@@ -35,6 +32,12 @@ namespace ScheduleNetCore.Api.Application.Services
         {
             var entidad = await _clientScheduleRepository.GetById(id);
             return entidad != null ? true : false;
+        }
+
+        public async Task<bool> GetByName(ClientScheduleEntity entity)
+        {
+            var entidad = await _clientScheduleRepository.GetByName(entity);
+            return entidad;
         }
 
         public async Task<ClientScheduleEntity> GetById(int idEntity)
@@ -62,5 +65,6 @@ namespace ScheduleNetCore.Api.Application.Services
         {
             return await _clientScheduleRepository.UpdateDesactive(identity);
         }
+
     }
 }
