@@ -31,7 +31,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.DataAcc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.CrossCutting", "ScheduleNetCore.Api.CrossCutting\ScheduleNetCore.Api.CrossCutting.csproj", "{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application.Unit.Test", "ScheduleNetCore.Api.Application.Unit.Test\ScheduleNetCore.Api.Application.Unit.Test.csproj", "{C5521AA0-9139-4634-A8BC-033393052B7D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.Application.Unit.Test", "ScheduleNetCore.Api.Application.Unit.Test\ScheduleNetCore.Api.Application.Unit.Test.csproj", "{C5521AA0-9139-4634-A8BC-033393052B7D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application.Integration.Test", "ScheduleNetCore.Api.Application.Integration.Test\ScheduleNetCore.Api.Application.Integration.Test.csproj", "{F55A6F24-63AB-4538-9191-767A20A630F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{C5521AA0-9139-4634-A8BC-033393052B7D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C5521AA0-9139-4634-A8BC-033393052B7D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C5521AA0-9139-4634-A8BC-033393052B7D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F55A6F24-63AB-4538-9191-767A20A630F5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F55A6F24-63AB-4538-9191-767A20A630F5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F55A6F24-63AB-4538-9191-767A20A630F5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F55A6F24-63AB-4538-9191-767A20A630F5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -94,6 +100,7 @@ Global
 		{16309175-D62B-4ABF-84CC-D12043F7B17E} = {051FF6E3-476E-439E-8369-014A67EAB7BE}
 		{86C65EF6-6AA5-4BED-ABC1-72D22A4189A7} = {33928CE6-68D0-4A6D-A34F-EC2EC1919D1F}
 		{C5521AA0-9139-4634-A8BC-033393052B7D} = {E6D25438-979D-4BA2-B32D-B82B4943107D}
+		{F55A6F24-63AB-4538-9191-767A20A630F5} = {E6D25438-979D-4BA2-B32D-B82B4943107D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F38B6B6-5ED6-4955-B1BD-550D933C931B}

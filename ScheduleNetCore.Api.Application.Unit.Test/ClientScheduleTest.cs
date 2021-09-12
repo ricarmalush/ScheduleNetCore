@@ -30,9 +30,11 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
 
             //Act
+            var existe = await _clientScheduleService.GetByName(ClientScheduleStub.clientScheduleEntity1);
             var result = await _clientScheduleService.Add(ClientScheduleStub.clientScheduleEntity1);
 
             //Assert
+            existe.Should().BeTrue();
             result.ClientName.Should().NotBeNullOrEmpty();
         }
 
@@ -61,6 +63,20 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
             //Assert
             result.ClientName.Should().NotBeNullOrEmpty();
+
+        }
+
+        [TestMethod]
+        public async Task Dado_un_id_devuelve_un__clientSchedule_true()
+        {
+            //Arrange
+
+
+            //Act
+            var result = await _clientScheduleService.Exist(1);
+
+            //Assert
+            result.Should().BeTrue();
 
         }
 

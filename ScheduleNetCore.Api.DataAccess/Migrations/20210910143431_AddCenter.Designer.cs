@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ScheduleNetCore.Api.DataAccess;
 
 namespace ScheduleNetCore.Api.DataAccess.Migrations
 {
     [DbContext(typeof(ScheduleNetCoreDBContext))]
-    partial class ScheduleNetCoreDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210910143431_AddCenter")]
+    partial class AddCenter
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

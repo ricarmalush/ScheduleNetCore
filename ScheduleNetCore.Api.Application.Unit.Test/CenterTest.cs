@@ -11,66 +11,69 @@ using System.Threading.Tasks;
 namespace ScheduleNetCore.Api.Application.Unit.Test
 {
     [TestClass]
-    public class CountryTest
+    public class CenterTest
     {
-        private static ICountryService _countryService;
+        private static ICenterService _centerService;
 
         [ClassInitialize()]
         public static void Setup(TestContext testContext)
         {
-            Mock<ICountryRepository> _countryRepository = new CountryRepositoryMock()._countryRepository;
+            Mock<ICenterRepository> _centerRepository = new CenterRepositoryMock()._centerRepository;
 
-            _countryService = new CountryService(_countryRepository.Object);
+            _centerService = new CenterService(_centerRepository.Object);
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_guarda_un_CountryEntity()
+        public async Task Dado_una_entidad_devuelve_un_guarda_un_CenterEntity()
         {
             //Arrange
 
+
             //Act
-            var existe = await _countryService.GetByName(CountryStub.countryEntity1);
-            var result = await _countryService.Add(CountryStub.countryEntity1);
+            var existe = await _centerService.GetByName(CenterStub.centerEntity1);
+            var result = await _centerService.Add(CenterStub.centerEntity1);
 
             //Assert
             existe.Should().BeTrue();
-            result.CountryName.Should().NotBeNullOrEmpty();
+            result.CenterName.Should().NotBeNullOrEmpty();
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_elimina_un_CountryEntity()
+        public async Task Dado_un_numero_elimina_un_CenterEntity()
         {
             //Arrange
 
+
             //Act
-            var result = await _countryService.DeleteAsync(1);
+            var result = await _centerService.DeleteAsync(1);
 
             //Assert
-            result.CountryId.Should().Equals(1);
+            result.ClientScheduleId.Should().Equals(1);
             result.Should().Equals(true);
         }
 
         [TestMethod]
-        public async Task Dado_un_id_devuelve_un_country_ok()
+        public async Task Dado_un_id_devuelve_un_center_ok()
         {
             //Arrange
 
+
             //Act
-            var result = await _countryService.GetById(1);
+            var result = await _centerService.GetById(1);
 
             //Assert
-            result.CountryName.Should().NotBeNullOrEmpty();
+            result.CenterName.Should().NotBeNullOrEmpty();
 
         }
 
         [TestMethod]
-        public async Task Dado_un_id_devuelve_un__country_true()
+        public async Task Dado_un_id_devuelve_un_center_true()
         {
             //Arrange
 
 
             //Act
-            var result = await _countryService.Exist(1);
+            var result = await _centerService.Exist(1);
 
             //Assert
             result.Should().BeTrue();
@@ -78,13 +81,13 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_nombre_devuelve_un_bolleano()
+        public async Task Dado_un_nombre_devuelve_un_boleano()
         {
             //Arrange
 
 
             //Act
-            var result = await _countryService.GetByName(CountryStub.countryEntity1);
+            var result = await _centerService.GetByName(CenterStub.centerEntity1);
 
             //Assert
             result.Should().Equals(true);
@@ -92,12 +95,13 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Devuelve_un_listado_de_countries()
+        public async Task Devuelve_un_listado_de_centers()
         {
             //Arrange
 
+
             //Act
-            var result = await _countryService.GetAll();
+            var result = await _centerService.GetAll();
 
             //Assert
             result.Should().NotBeNullOrEmpty();//Lista no vacía
@@ -106,12 +110,13 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_una_entidad_devuelve_un_actualiza_un_CountryEntity()
+        public async Task Dado_una_entidad_devuelve_un_actualiza_un_CenterEntity()
         {
             //Arrange
 
+
             //Act
-            var result = await _countryService.UpdateAsync(CountryStub.countryEntity1);
+            var result = await _centerService.UpdateAsync(CenterStub.centerEntity1);
 
             //Assert
             result.Should().NotBeNull();
@@ -119,29 +124,29 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_activa_un_CountryEntity()
+        public async Task Dado_un_numero_activa_un_CenterEntity()
         {
             //Arrange
 
+
             //Act
-            var result = await _countryService.UpdateActive(1);
+            var result = await _centerService.UpdateActive(1);
 
             //Assert
-            result.CountryId.Should().Equals(1);
+            result.ClientScheduleId.Should().Equals(1);
             result.Should().Equals(true);
         }
 
         [TestMethod]
-        public async Task Dado_un_numero_desactiva_un_CountryEntity()
+        public async Task Dado_un_numero_desactiva_un_CenterEntity()
         {
             //Arrange
 
-
             //Act
-            var result = await _countryService.UpdateDesactive(1);
+            var result = await _centerService.UpdateDesactive(1);
 
             //Assert
-            result.CountryId.Should().Equals(1);
+            result.ClientScheduleId.Should().Equals(1);
             result.Should().Equals(true);
         }
 

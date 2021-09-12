@@ -110,6 +110,20 @@ TEST
 		Es una herramienta muy importante, cuando queremos acceder a una api que esta caída, 
 	y no saturarla de reintentos.En nuestro ejemplo lo configuramos en el archivo AppConfig y IAppConfig
 
+	Git y GitHub:
+
+	GitHub es una plataforma de alojamiento, propiedad de Microsoft, que ofrece a los desarrolladores
+	la posibilidad de crear repositorios de código y guardarlos en la nube de forma segura, usando un 
+	sistema de control de versiones, llamado Git.
+
+    Facilita la organización de proyectos y permite la colaboración de varios desarrolladores en tiempo real. 
+	Es decir, nos permite centralizar el contenido del repositorio para poder colaborar con los otros 
+	miembros de nuestra organización.
+
+	Commit: Es comno aceptar los cambios.
+	Push: Significa enviar de mi ordenador al servidor.
+	Pull: Cogera todo lo que necesitamos del servidor y lo pondrá en mi máquina.
+
 
 https://www.youtube.com/watch?v=VHwCMi8kc_M
 https://www.youtube.com/watch?v=pgCMTsVlHrginve

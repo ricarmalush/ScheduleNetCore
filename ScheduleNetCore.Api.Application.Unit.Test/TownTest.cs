@@ -29,9 +29,11 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
             //Arrange
 
             //Act
+            var existe = await _townService.GetByName(TownStub.townEntity1);
             var result = await _townService.Add(TownStub.townEntity1);
 
             //Assert
+            existe.Should().BeTrue();
             result.Name.Should().NotBeNullOrEmpty();
         }
 
@@ -58,6 +60,20 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
             //Assert
             result.Name.Should().NotBeNullOrEmpty();
+
+        }
+
+        [TestMethod]
+        public async Task Dado_un_id_devuelve_un__town_true()
+        {
+            //Arrange
+
+
+            //Act
+            var result = await _townService.Exist(1);
+
+            //Assert
+            result.Should().BeTrue();
 
         }
 

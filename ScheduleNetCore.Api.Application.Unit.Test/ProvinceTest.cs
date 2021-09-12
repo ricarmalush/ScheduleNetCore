@@ -29,9 +29,11 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
             //Arrange
 
             //Act
+            var existe = await _provinceService.GetByName(ProvinceStub.provinceEntity1);
             var result = await _provinceService.Add(ProvinceStub.provinceEntity1);
 
             //Assert
+            existe.Should().BeTrue();
             result.Name.Should().NotBeNullOrEmpty();
         }
 
@@ -62,7 +64,21 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
         }
 
         [TestMethod]
-        public async Task Dado_un_nombre_devuelve_un_bolleano()
+        public async Task Dado_un_id_devuelve_un__province_true()
+        {
+            //Arrange
+
+
+            //Act
+            var result = await _provinceService.Exist(1);
+
+            //Assert
+            result.Should().BeTrue();
+
+        }
+
+        [TestMethod]
+        public async Task Dado_un_nombre_devuelve_un_boleano()
         {
             //Arrange
 

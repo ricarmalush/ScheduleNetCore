@@ -29,9 +29,11 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
             //Arrange
 
             //Act
+            var existe = await _companyService.GetByName(CompanyStub.companyEntity1);
             var result = await _companyService.Add(CompanyStub.companyEntity1);
 
             //Assert
+            existe.Should().BeTrue();
             result.CompanyName.Should().NotBeNullOrEmpty();
         }
 
@@ -58,6 +60,20 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
             //Assert
             result.CompanyName.Should().NotBeNullOrEmpty();
+
+        }
+
+        [TestMethod]
+        public async Task Dado_un_id_devuelve_un__company_true()
+        {
+            //Arrange
+
+
+            //Act
+            var result = await _companyService.Exist(1);
+
+            //Assert
+            result.Should().BeTrue();
 
         }
 

@@ -30,6 +30,7 @@ namespace ScheduleNetCore.Api.CrossCutting.Register
             services.AddTransient<ITownService, TownService>();
             services.AddTransient<ICompanyService, CompanyService>();
             services.AddTransient<ICauseService, CauseService>();
+            services.AddTransient<ICenterService, CenterService>();
 
             return services;
         }
@@ -43,6 +44,7 @@ namespace ScheduleNetCore.Api.CrossCutting.Register
             services.AddTransient<ITownRepository, TownRepository>();
             services.AddTransient<ICompanyRepository, CompanyRepository>();
             services.AddTransient<ICauseRepository, CauseRepository>();
+            services.AddTransient<ICenterRepository, CenterRepository>();
 
             return services;
         }

@@ -16,6 +16,7 @@ namespace ScheduleNetCore.Api.DataAccess.Contracts
         public DbSet<TownEntity> Town { get; set; }
         public DbSet<CompanyEntity> Company { get; set; }
         public DbSet<CauseEntity> Cause { get; set; }
+        public DbSet<CenterEntity> Center { get; set; }
 
         //Estas son las operaciones básicas que realiza el contexto
         DbSet<TEntity> Set<TEntity>() where TEntity : class;

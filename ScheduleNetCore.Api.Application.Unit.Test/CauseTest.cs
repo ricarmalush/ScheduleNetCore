@@ -30,9 +30,11 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
 
             //Act
+            var existe = await _causeService.GetByName(CauseStub.causeEntity1);
             var result = await _causeService.Add(CauseStub.causeEntity1);
 
             //Assert
+            existe.Should().BeTrue();
             result.CauseName.Should().NotBeNullOrEmpty();
         }
 
@@ -61,6 +63,20 @@ namespace ScheduleNetCore.Api.Application.Unit.Test
 
             //Assert
             result.CauseName.Should().NotBeNullOrEmpty();
+
+        }
+
+        [TestMethod]
+        public async Task Dado_un_id_devuelve_un_cause_true()
+        {
+            //Arrange
+
+
+            //Act
+            var result = await _causeService.Exist(1);
+
+            //Assert
+            result.Should().BeTrue();
 
         }
 
