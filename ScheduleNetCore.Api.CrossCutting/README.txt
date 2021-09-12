@@ -124,7 +124,7 @@ TEST
 	Push: Significa enviar de mi ordenador al servidor.
 	Pull: Cogera todo lo que necesitamos del servidor y lo pondrá en mi máquina.
 	Fetch: Recoge todo lo que esta creado en los branches y los ponde en nuestra máquina
-	Merge: 
+	Merge: Permite tomar las líneas independientes de desarrollo creadas por git branch e integrarlas en una sola rama.
 
 
 https://www.youtube.com/watch?v=VHwCMi8kc_M
