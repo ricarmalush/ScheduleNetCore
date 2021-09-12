@@ -123,6 +123,8 @@ TEST
 	Commit: Es comno aceptar los cambios.
 	Push: Significa enviar de mi ordenador al servidor.
 	Pull: Cogera todo lo que necesitamos del servidor y lo pondrá en mi máquina.
+	Fetch: Recoge todo lo que esta creado en los branches y los ponde en nuestra máquina
+	Merge: 
 
 
 https://www.youtube.com/watch?v=VHwCMi8kc_M
