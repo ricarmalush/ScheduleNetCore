@@ -33,7 +33,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.CrossCu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.Application.Unit.Test", "ScheduleNetCore.Api.Application.Unit.Test\ScheduleNetCore.Api.Application.Unit.Test.csproj", "{C5521AA0-9139-4634-A8BC-033393052B7D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScheduleNetCore.Api.Application.Integration.Test", "ScheduleNetCore.Api.Application.Integration.Test\ScheduleNetCore.Api.Application.Integration.Test.csproj", "{F55A6F24-63AB-4538-9191-767A20A630F5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ScheduleNetCore.Api.Application.Integration.Test", "ScheduleNetCore.Api.Application.Integration.Test\ScheduleNetCore.Api.Application.Integration.Test.csproj", "{F55A6F24-63AB-4538-9191-767A20A630F5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
